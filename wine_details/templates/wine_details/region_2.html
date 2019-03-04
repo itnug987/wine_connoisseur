@@ -1,0 +1,54 @@
+<style>
+div {
+  background-color:white;
+  align-self: center;
+
+  padding: 5px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+</style>
+
+<body bgcolor="#001233" >
+<center>
+        <h1 style="color: white">Wine Connoisseur</h1>
+        <h2 style="color: white">This page contains details of all wines</h2>
+</center>
+
+
+        <br>
+    {% for wine in wines_region_2  %}
+    <div>
+      <h2 style="background-color: #00a3cc">{{ wine.winery }} </h2>
+
+      Designation : {{ wine.designation }}
+      <br><br>
+      Description : {{ wine.description }}
+      <br><br>
+      <table>
+          <tr>
+            <td>Country : {{wine.country}}</td>
+            <td>| &nbsp</td>
+            <td>Points : {{ wine.points }}</td>
+            <td>|  </td>
+            <td>Price : {{ wine.price }}</td>
+            <td>|  </td>
+            <td>Province : {{ wine.province }}</td>
+            <td>|  </td>
+            <td>Variety : {{ wine.variety }}</td>
+            <td>|  </td>
+            <td>Region_1 : {{ wine.region_1 }}</td>
+          <td>|  </td>
+          <td>Region_2 : {{ wine.region_2 }}</td>
+          </tr>
+      </table>
+
+
+
+      </div>
+      <br>
+    {% endfor %}
+
+
+</body>

@@ -1,0 +1,69 @@
+<style>
+div {
+  background-color:white;
+  align-self: center;
+
+  padding: 5px;
+  margin-left: 200px;
+  margin-right: 200px;
+
+}
+</style>
+<body bgcolor="#001233" >
+
+<center>
+        <h1 style="color: white">Wine Connoisseur</h1>
+        <h2 style="color: white">This page contains details of all wines</h2>
+</center>
+<center>
+        {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'profile' %}" style="color: #66ff66">Profile |</a>
+
+                <a class="nav-item nav-link" href="{% url 'logout' %}" style="color: #66ff66">Logout</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{% url 'login' %}" style="color: #66ff66">Login |</a>
+
+                <a class="nav-item nav-link" href="{% url 'register' %}" style="color: #66ff66">Register</a>
+              {% endif %}
+                <br><br>
+        <a href="country.html" type="submit" style="color: white"> Filter by country</a> |
+        <a href="province.html" type="submit" style="color: white"> Filter by province</a> |
+        <a href="region_1.html" type="submit" style="color: white"> Filter by region 1</a> |
+        <a href="region_2.html" type="submit" style="color: white"> Filter by region 2</a> |
+        <a href="variety.html" type="submit" style="color: white"> Filter by Variety</a> |
+        <a href="sort.html" type="submit" style="color: white"> Sort by Price</a></center>
+        <br>
+    {% for wine in wines  %}
+    <div>
+      <h2 style="background-color: #00a3cc">{{ wine.winery }} </h2>
+
+      Designation : {{ wine.designation }}
+      <br><br>
+      Description : {{ wine.description }}
+      <br><br>
+      <table>
+          <tr>
+            <td>Country : {{wine.country}}</td>
+            <td>| &nbsp</td>
+            <td>Points : {{ wine.points }}</td>
+            <td>| &nbsp</td>
+            <td>Price : {{ wine.price }}</td>
+            <td>|&nbsp</td>
+            <td>Province : {{ wine.province }}</td>
+            <td>|&nbsp</td>
+            <td>Variety : {{ wine.variety }}</td>
+            <td>|&nbsp</td>
+            <td>Region_1 : {{ wine.region_1 }}</td>
+          <td>|&nbsp </td>
+          <td>Region_2 : {{ wine.region_2 }}</td>
+          </tr>
+      </table>
+
+
+
+      </div>
+      <br>
+    {% endfor %}
+
+
+</body>
